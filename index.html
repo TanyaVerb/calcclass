@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="./css/style.min.css
+    "
+    />
+  </head>
+  <body>
+    <div class="calculator-container">
+      <div class="calculator__num1 block">
+        <label  for="num1"> Введите первое число </label>
+        <input class="num1" type="text" id="num1" />
+      </div>
+
+      <div class="calculator__result block">
+        <h2 class="result">Ваш результат:...</h2>
+        <div class="calculator__sign">
+          <label for="sign"> Выберите знак </label>
+          <select name="" id="">
+            <option class="sign" value="sum">+</option>
+            <option class="sign" value="minus">-</option>
+            <option class="sign" value="multiply">*</option>
+            <option class="sign" value="d">/</option>
+          </select>
+        </div>
+        <button>Показать результат</button>
+        <button class="clearBtn" >Очистить</button>
+      </div>
+
+      <div class="calculator__num2 block">
+        <label for="name"> Введите второе число </label>
+        <input class="num2" type="text" name="" />
+      </div>
+    </div>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
