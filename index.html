@@ -11,32 +11,40 @@
     />
   </head>
   <body>
-    <div class="calculator-container">
-      <div class="calculator__num1 block">
-        <label  for="num1"> Введите первое число </label>
-        <input class="num1" type="text" id="num1" />
+    <main class="calculator">
+      <div class="calculator__left-block block">
+        <label class="num">
+          <span class="sub-title">Введите первое число </span>
+          <input class="num__input first-input" type="text" />
+        </label>
       </div>
 
       <div class="calculator__result block">
-        <h2 class="result">Ваш результат:...</h2>
-        <div class="calculator__sign">
-          <label for="sign"> Выберите знак </label>
-          <select name="" id="">
-            <option class="sign" value="sum">+</option>
-            <option class="sign" value="minus">-</option>
-            <option class="sign" value="multiply">*</option>
-            <option class="sign" value="d">/</option>
+        <h1 class="result title">
+          Ваш результат: <span class="result-value">...</span>
+        </h1>
+
+        <label class="num">
+          <span class="sub-title">Выберите знак </span>
+          <select class="sign">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
           </select>
-        </div>
-        <button>Показать результат</button>
-        <button class="clearBtn" >Очистить</button>
+        </label>
+
+        <button class="result-btn btn">Показать результат</button>
+        <button class="clear-btn btn">Очистить</button>
       </div>
 
-      <div class="calculator__num2 block">
-        <label for="name"> Введите второе число </label>
-        <input class="num2" type="text" name="" />
+      <div class="calculator__right-block block">
+        <label class="num">
+          <span class="sub-title"> Введите второе число </span>
+          <input class="num__input second-input" type="text" />
+        </label>
       </div>
-    </div>
+    </main>
 
     <script src="./index.js"></script>
   </body>

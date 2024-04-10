@@ -1,70 +1,85 @@
-const num1 = document.querySelector('.num1');
-const num2 = document.querySelector('.num2');
+const firstNumInput = document.querySelector(".first-input");
+const secondNumInput = document.querySelector(".second-input");
+const signSelect = document.querySelector(".sign");
+const resultTitle = document.querySelector(".result-value");
+const resultBtn = document.querySelector(".result-btn");
+const clearBtn = document.querySelector(".clear-btn");
 
-const result = document.querySelector(".result");
+console.log(firstNumInput);
+console.log(secondNumInput);
+console.log(signSelect);
+console.log(resultTitle);
+console.log(resultBtn);
+console.log(clearBtn);
 
-const clearBtn = document.querySelector(".clearBtn");
+const OPERATION = {
+  sum: "+",
+  subtract: "-",
+  multiply: "*",
+  divide: "/",
+};
 
-
-
-console.log (num1);
-console.log (num2);
-console.log (result);
-console.log (clearBtn);
-
-const sign ={
-    sum: "+",
-    subtract: "-",
-    multiply: "*",
-    divide: "/",
+const calculateData = {
+  num1: "",
+  num2: "",
+  sign: "+",
+  result: "",
+};
+function sum(num1, num2) {
+  return +num1 + +num2;
+}
+function subtract(num1, num2) {
+  return +num1 - +num2;
+}
+function multiply(num1, num2) {
+  return +num1 * +num2;
+}
+function divide(num1, num2) {
+  return +num1 / +num2;
 }
 
-function sum(num1, num2) {
-    return +num1 + +num2;
+function resetCalculate() {
+  calculateData.num1 = "";
+  calculateData.num2 = "";
+  calculateData.sign = "+";
+  calculateData.result = "";
+  resultTitle.textContent = "...";
+  firstNumInput.value = "";
+  secondNumInput.value = "";
+  signSelect.value = "+";
+}
+
+function calculate(num1, num2, sign) {
+  switch (sign) {
+    case OPERATION.sum:
+      calculateData.result = sum(num1, num2);
+      break;
+    case OPERATION.subtract:
+      calculateData.result = subtract(num1, num2);
+      break;
+    case OPERATION.multiply:
+      calculateData.result = multiply(num1, num2);
+      break;
+    case OPERATION.divide:
+      calculateData.result = divide(num1, num2);
+      break;
   }
-  function subtract(num1, num2) {
-    return +num1 - +num2;
-  }
-  function multiply(num1, num2) {
-    return +num1 * +num2;
-  }
-  function divide(num1, num2) {
-    return +num1 / +num2;
-  }
+}
 
-  clearBtn.addEventListener("click", function (event) {
-    
-    num1 = "";
-    num2 = "";
-    sign = "";
-    result = "";
-  });
+firstNumInput.addEventListener("keyup", function (e) {
+  calculateData.num1 = e.target.value;
+});
+secondNumInput.addEventListener("keyup", function (e) {
+  calculateData.num2 = e.target.value;
+});
 
+signSelect.addEventListener("change", function (e) {
+  calculateData.sign = e.target.value;
+});
 
-  function calculate(num1, num2, sign) {
-    switch (sign) {
-      case sign.sum:
-        calculateData.result = String(sum(num1, num2));
-        break;
-      case sign.subtract:
-        calculateData.result = String(subtract(num1, num2));
-        break;
-      case sign.multiply:
-        calculateData.result = String(multiply(num1, num2));
-        break;
-      case sign.divide:
-        calculateData.result = String(divide(num1, num2));
-        break;
-    }
-  }
+resultBtn.addEventListener("click", function (e) {
+  calculate(calculateData.num1, calculateData.num2, calculateData.sign);
+  resultTitle.textContent = calculateData.result;
+});
 
-  let num1 = ''
-  let num2= ''
-  let sign = '+'
-  let result = ''
-
-  result.addEventListener("change", function (event) {
-    num1 = event.target.value
-
-
-  });
+clearBtn.addEventListener("click", resetCalculate);
