@@ -147,7 +147,7 @@ console.log(result2);
 
 //У функции ключ name и arguments
 //К ним мы можем обратиться через название функции и точку. При этом, к arguments может просто по слову
-//Typeof функции возвращает 'function', на функции это объекты
+//Typeof функции возвращает 'function', но функции это объекты
 // у стрелочных функций нет key arguments
 
 // window.someFoo3()
@@ -165,7 +165,7 @@ console.log(myName.length);
 let index = 1;
 
 console.log(myName[index]);
-console.log(myName.toUpperCase()); //метод возвращает новое значение не изменяя текущее
+console.log(myName.toUpperCase()); //метод возвращает новое значение, не изменяя текущее
 console.log(myName);
 const upperCaseMyName = myName.toUpperCase();
 
@@ -185,7 +185,13 @@ console.log(formatUserName("VLAD"));
 
 checkName.addEventListener("click", () => {
   let data = firstNumInput.value;
-  const resultData = formatUserName(data);
-
+  let resultData = formatUserName(data);
   resultTitle.innerHTML = resultData;
 });
+
+// запрет на введение символов______________________________________________________
+let reg = /[A-Za=zA-Яа-яЁё]/g;
+let regex = /[0-9]/g;
+firstNumInput.oninput = function () {
+  this.value = this.value.replace(regex, "");
+};
