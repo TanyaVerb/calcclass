@@ -196,6 +196,7 @@ checkName.addEventListener("click", () => {
 //   this.value = this.value.replace(regex, "");
 // };
 //_____________________________________________________
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ("use strict");
 
 let userName = `Vlad`;
@@ -219,7 +220,10 @@ console.log(userName.at(15)); // undefined
 
 // Перебор строки
 for (let i = 0; i <= userName.length - 1; i++) {
-  console.log(userName[i]);
+  if (i === 0) {
+    continue;
+  }
+  console.log("for", userName[i]);
 }
 
 // индексы
@@ -229,11 +233,11 @@ function foo() {
     if (i === "0") continue;
     console.log("in", userName[i]);
   }
+
   for (let letter of userName) {
-    if (letter === "v") {
+    if (letter === "V") {
       continue;
     }
-
     console.log("of", letter);
   }
 }
@@ -244,12 +248,17 @@ userName.toLowerCase();
 userName.toUpperCase();
 
 const strForMethodIndexOf = "Это строка для теста метода IndexOf";
+
 console.log(strForMethodIndexOf.indexOf("для")); //11
 console.log(strForMethodIndexOf.indexOf("для", 12)); //-1
 console.log(strForMethodIndexOf.indexOf("для", -12)); //11  игнорирует отрицательные числа
+console.log(srtForMethodIndexOf.indexOf("Это")); // -1
 
 if (strForMethodIndexOf.indexOf("Это")) {
-  console.log("");
+  console.log("Код не выполнится");
+}
+if (~srtForMethodIndexOf.indexOf("Это")) {
+  console.log("Код выполнится");
 }
 
 const stringTask1 = "Меня зовут таня, тебя зовут таня тоже";
@@ -266,9 +275,9 @@ function findAllOccurrences(text, searchText) {
   return occurrences;
 }
 
-console.log(findAllOccurrences(stringTask1, "Таня"));
+console.log(findAllOccurrences(stringTask1, "таня"));
 
-console.log(stringTask1.includes("Таня")); // true
+console.log(stringTask1.includes("таня")); // true
 
 const stringTask2_1 = "!@#$.T"; //символы должны быть в пароле (5 символов)
 const stringTask2_2 = "Cat!@#$.";
@@ -315,7 +324,7 @@ function filterMessage(message) {
 console.log(filterMessage(userIncorrectMessage)); //'Эй ты, *******'
 console.log(filterMessage(userCorrectMessage)); // ' Эй ты, Чел!'
 
-// length
+//STRING
 //length
 //at
 //charAt
@@ -325,10 +334,11 @@ console.log(filterMessage(userCorrectMessage)); // ' Эй ты, Чел!'
 //toLowerCase
 //toUpperCase
 //str.indexOf(substr, [pos])
-//str.last
+//str.lastIndexOf(substr, [pos])
 // includes (startWith, endWith)
 //slice (start, [end])
 // substring(), substr()
 // trim()
-//replace
-//replaceAll
+//replace()
+// replaceAll()
+// repeat()
