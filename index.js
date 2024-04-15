@@ -196,133 +196,124 @@ checkName.addEventListener("click", () => {
 //   this.value = this.value.replace(regex, "");
 // };
 //_____________________________________________________
-'use strict'
+("use strict");
 
-let userName = `Vlad`
+let userName = `Vlad`;
 
-userName[0] = 'S'
-
-
+userName[0] = "S";
 
 console.log(userName.length);
-console.log(userName.length -1);
-console.log(typeof userName.length === 'number');
-console.log (userName[0]);
-console.log (userName[15]); //undefined
-console.log (userName[-1]); //undefined
-console.log (userName.charAt(0)); 'V'
-console.log (userName.charAt(-1));// ''
-console.log (userName.charAt(15));// ''
-console.log (userName.charAt(userName.length - 1));// 'd'
-console.log (userName.at(0));// 'V'
-console.log (userName.at(-1));// 'd'
-console.log (userName.at(15));// undefined
+console.log(userName.length - 1);
+console.log(typeof userName.length === "number");
+console.log(userName[0]);
+console.log(userName[15]); //undefined
+console.log(userName[-1]); //undefined
+console.log(userName.charAt(0));
+("V");
+console.log(userName.charAt(-1)); // ''
+console.log(userName.charAt(15)); // ''
+console.log(userName.charAt(userName.length - 1)); // 'd'
+console.log(userName.at(0)); // 'V'
+console.log(userName.at(-1)); // 'd'
+console.log(userName.at(15)); // undefined
 
 // Перебор строки
-for (let i = 0; i <=userName.length -1; i++  ){
+for (let i = 0; i <= userName.length - 1; i++) {
   console.log(userName[i]);
-};
-
+}
 
 // индексы
 
-function foo(){
-  for (let i in userName){
-    if (i==="0")continue
-    console.log('in', userName[i]);
-  
+function foo() {
+  for (let i in userName) {
+    if (i === "0") continue;
+    console.log("in", userName[i]);
   }
-  for (let letter of userName){
-    if (letter === 'v'){
-      continue
-    }
-  
-    console.log( 'of',letter);
-  }
-  
-}
-
-foo()
-
-
-userName.toLowerCase()
-userName.toUpperCase()
-
-const strForMethodIndexOf = 'Это строка для теста метода IndexOf'
-console.log(strForMethodIndexOf.indexOf('для')); //11
-console.log(strForMethodIndexOf.indexOf('для', 12)); //-1
-console.log(strForMethodIndexOf.indexOf('для', -12)); //11  игнорирует отрицательные числа
-
-if(strForMethodIndexOf.indexOf('Это')){
-  console.log('');
-}
-
-const stringTask1 = 'Меня зовут Таня, тебя зовут Таня тоже'
-
-function findAllOccurrences (text, searchText){
-let occurrences = []
-let index = text.indexOf(searchText)
-
-while (index !== -1){
-  occurrences.push(index)
-  index = text.indexOf(searchText, index + 1)
-}
-
-return occurrences
-}
-
- console.log (findAllOccurrences(stringTask1, 'Таня'))
-
-
- console.log(stringTask1.includes('Таня'))// true
-
-  const stringTask2_1 = '!@#$.' //символы должны быть в пароле (5 символов)
-  const stringTask2_2 = 'Cat!@#$.'
-  const stringTask2_3 = '!@#$.321312dadaaada'
-
-  function checkAllCharactes(str1, str2){
-    const requiredSymbolLength = str1.length
-    let counter = 0 // не может быть больше 5
-    for(let char of str1){
-      if(!str2.includes(char)){
-        console.log('checkAllCharactes', false)
-        return false
-      }else {
-        console.log('checkAllCharactes', true)
-        counter++
-      }
-      return counter === requiredSymbolLength
+  for (let letter of userName) {
+    if (letter === "v") {
+      continue;
     }
 
+    console.log("of", letter);
+  }
+}
 
+foo();
+
+userName.toLowerCase();
+userName.toUpperCase();
+
+const strForMethodIndexOf = "Это строка для теста метода IndexOf";
+console.log(strForMethodIndexOf.indexOf("для")); //11
+console.log(strForMethodIndexOf.indexOf("для", 12)); //-1
+console.log(strForMethodIndexOf.indexOf("для", -12)); //11  игнорирует отрицательные числа
+
+if (strForMethodIndexOf.indexOf("Это")) {
+  console.log("");
+}
+
+const stringTask1 = "Меня зовут таня, тебя зовут таня тоже";
+
+function findAllOccurrences(text, searchText) {
+  let occurrences = [];
+  let index = text.indexOf(searchText);
+
+  while (index !== -1) {
+    occurrences.push(index);
+    index = text.indexOf(searchText, index + 1);
   }
 
-  console.log(checkAllCharactes(stringTask2_1,stringTask2_3 )) 
+  return occurrences;
+}
 
+console.log(findAllOccurrences(stringTask1, "Таня"));
 
-  console.log(stringTask1.slice(0,3)) 
-  console.log(stringTask1.slice(-4,-1)) 
+console.log(stringTask1.includes("Таня")); // true
 
-  console.log(stringTask1) 
-  console.log(stringTask1.replace('Таня', 'Влад'))
-  console.log(stringTask1.replaceAll('Таня', 'Влад'))
-  console.log(stringTask1) 
+const stringTask2_1 = "!@#$.T"; //символы должны быть в пароле (5 символов)
+const stringTask2_2 = "Cat!@#$.";
+const stringTask2_3 = "!321312dadaaada@#$.T";
 
-
-const badWords = ['Собака', 'Петух','козел']
-const userIncorrectMessage = "Эй ты, Петух. Я сказал Петух "
-const userCorrectMessage = "Эй ты, Чел!"
-
-  function filterMassage (messege){
-    let filteredMessage = MessageChannel
-    for  (let word of badWords){
-      filterMassage = filterMassage.replaceAll(word, '*'.repeat(word.length))
+function checkAllCharactes(str1, str2) {
+  const requiredSymbolLength = str1.length;
+  let counter = 0; // не может быть больше 5
+  for (let char of str1) {
+    if (!str2.includes(char)) {
+      console.log("checkAllCharactes", false);
+      return false;
+    } else {
+      console.log("checkAllCharactes", true);
+      counter++;
     }
-return filterMassage
+    return counter === requiredSymbolLength;
   }
+}
 
-  filterMassage(userIncorrectMessage)//Эй ты, *******
-  filterMassage(userCorrectMessage)// ' Эй ты, Чел!'
+console.log(checkAllCharactes(stringTask2_1, stringTask2_2));
+
+console.log(stringTask1);
+console.log(stringTask1.slice(0, 3));
+console.log(stringTask1.slice(-4, -1));
+
+console.log(stringTask1);
+console.log(stringTask1.replace("Таня", "Влад"));
+console.log(stringTask1.replaceAll("Таня", "Влад"));
+console.log(stringTask1);
+
+const badWords = ["Собака", "Петух", "Козел"];
+const userIncorrectMessage = "Эй ты, Петух. Я сказал Петух ";
+const userCorrectMessage = "Эй ты, Чел!";
+
+function filterMessage(message) {
+  let filtredMessage = message;
+  for (let word of badWords) {
+    filtredMessage = filtredMessage.replaceAll(word, "*".repeat(word.length));
+  }
+  return filtredMessage;
+}
+
+console.log(filterMessage(userIncorrectMessage)); //'Эй ты, *******'
+console.log(filterMessage(userCorrectMessage)); // ' Эй ты, Чел!'
 
 // length
 //length
